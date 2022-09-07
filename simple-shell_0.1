@@ -57,7 +57,6 @@ return (0);
  *                                                                                       
  * Return: always 0.                                                                     
  */                                                                                      
-                                                                                         
 int main(void)                                                                           
 {                                                                                        
 char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};                                         
@@ -69,7 +68,19 @@ perror("Error:");
 printf("After execve\n");                                                                
 return (0);                                                                              
 }
-
+/**
+ * main - print environment
+ *
+ * Return: always 0.
+ */
+int main(int argc, char *argv[], char * envp[])
+{
+int i;
+for (i = 0; envp[i] != NULL; i++)
+printf("\n%s", envp[i]);
+getchar();
+return 0;
+}
 /**
  * main - handle end of file
  * Return: always 0.
